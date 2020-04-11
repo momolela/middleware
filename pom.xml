@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.momolela</groupId>
+  <artifactId>middleware</artifactId>
+  <version>0.0.1</version>
+  <packaging>pom</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  <modules>
+    <module>redis</module>
+    <module>zookeeper</module>
+      <module>kafka</module>
+      <module>activemq</module>
+    <module>elasticsearch</module>
+      <module>fastdfs</module>
+    <module>nginx</module>
+  </modules>
+</project>

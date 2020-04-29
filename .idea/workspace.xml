@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bfeee5a1-ec96-4f12-81fd-577f27f0ef00" name="Default Changelist" comment="" />
+    <list default="true" id="bfeee5a1-ec96-4f12-81fd-577f27f0ef00" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/activemq/src/main/java/com/momolela/consumer/JmsConsumerQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/activemq/src/main/java/com/momolela/consumer/JmsConsumerTopic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/activemq/src/main/java/com/momolela/producer/JmsProduceTopic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/activemq/src/main/java/com/momolela/producer/JmsProducerQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/activemq_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/activemq_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/zookeeper_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/zookeeper_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/activemq/activemq.iml" beforeDir="false" afterPath="$PROJECT_DIR$/activemq/activemq.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/activemq/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/activemq/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elasticsearch/elasticsearch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/elasticsearch/elasticsearch.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastdfs/fastdfs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/fastdfs/fastdfs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware.iml" beforeDir="false" afterPath="$PROJECT_DIR$/middleware.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx/nginx.iml" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/nginx.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zookeeper/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zookeeper/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zookeeper/zookeeper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/zookeeper/zookeeper.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +32,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -35,20 +57,50 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/nginx/src/main/java/com.momolela" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.momolela.consumer" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\idea\middleware\nginx\src\main\java\com.momolela" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.JmsConsumerQueue">
+    <configuration name="JmsConsumerQueue" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.momolela.consumer.JmsConsumerQueue" />
+      <module name="activemq" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.momolela.consumer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JmsProducerQueue" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.momolela.producer.JmsProducerQueue" />
+      <module name="activemq" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.momolela.producer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MyProducer_01_easy" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.momolela.producer.MyProducer_01_easy" />
       <module name="kafka" />
@@ -111,6 +163,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.JmsConsumerQueue" />
+        <item itemvalue="Application.JmsProducerQueue" />
         <item itemvalue="Application.MyProducer_01_easy" />
       </list>
     </recent_temporary>
@@ -141,6 +195,10 @@
       <workItem from="1577799952499" duration="6151000" />
       <workItem from="1577806354367" duration="15776000" />
       <workItem from="1577926249910" duration="18029000" />
+      <workItem from="1587281725207" duration="600000" />
+      <workItem from="1587565284033" duration="3483000" />
+      <workItem from="1588084260782" duration="2784000" />
+      <workItem from="1588173719934" duration="2215000" />
     </task>
     <servers />
   </component>
@@ -148,81 +206,45 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="872" y="358" key="#Notifications" timestamp="1577926820197">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1588086763765">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="872" y="358" key="#Notifications/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1577926820197" />
-    <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578397187550">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588086763765" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1588086763765">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1578397187550" />
-    <state x="1000" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578276607585">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588086763765" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1588086763765">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1000" y="502" key="#com.intellij.fileTypes.FileTypeChooser/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1578276607585" />
-    <state x="1085" y="409" key="#com.intellij.ide.util.MemberChooser" timestamp="1577879203740">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588086763765" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1588086763765">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1085" y="409" key="#com.intellij.ide.util.MemberChooser/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1577879203740" />
-    <state x="1060" y="455" key="FileChooserDialogImpl" timestamp="1577771154548">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588086763765" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1588086763620">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1060" y="455" key="FileChooserDialogImpl/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1577771154548" />
-    <state width="2517" height="401" key="GridCell.Tab.0.bottom" timestamp="1578497279585">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588086763620" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1588086763620">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="2517" height="401" key="GridCell.Tab.0.bottom/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1578497279585" />
-    <state width="2517" height="401" key="GridCell.Tab.0.center" timestamp="1578497279584">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588086763620" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1588086763620">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="2517" height="401" key="GridCell.Tab.0.center/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1578497279584" />
-    <state width="2517" height="401" key="GridCell.Tab.0.left" timestamp="1578497279584">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588086763620" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1588086763620">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="2517" height="401" key="GridCell.Tab.0.left/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1578497279584" />
-    <state width="2517" height="401" key="GridCell.Tab.0.right" timestamp="1578497279585">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588086763620" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1587566684697">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="2517" height="401" key="GridCell.Tab.0.right/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1578497279585" />
-    <state width="2517" height="385" key="GridCell.Tab.1.bottom" timestamp="1577850115328">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587566684697" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1588085335430">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="2517" height="385" key="GridCell.Tab.1.bottom/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1577850115328" />
-    <state width="2517" height="385" key="GridCell.Tab.1.center" timestamp="1577850115327">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="385" key="GridCell.Tab.1.center/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1577850115327" />
-    <state width="2517" height="385" key="GridCell.Tab.1.left" timestamp="1577850115327">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="385" key="GridCell.Tab.1.left/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1577850115327" />
-    <state width="2517" height="385" key="GridCell.Tab.1.right" timestamp="1577850115328">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="385" key="GridCell.Tab.1.right/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1577850115328" />
-    <state x="823" y="319" key="SettingsEditor" timestamp="1578277020136">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="823" y="319" key="SettingsEditor/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1578277020136" />
-    <state x="960" y="524" key="com.intellij.ide.util.TipDialog" timestamp="1577926766173">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="960" y="524" key="com.intellij.ide.util.TipDialog/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1577926766173" />
-    <state x="1010" y="453" key="extract.method.dialog" timestamp="1577879964531">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1010" y="453" key="extract.method.dialog/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1577879964531" />
-    <state x="956" y="438" width="647" height="524" key="find.popup" timestamp="1577806301209">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="956" y="438" width="647" height="524" key="find.popup/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1577806301209" />
-    <state x="654" y="394" key="new project wizard" timestamp="1578275609360">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="654" y="394" key="new project wizard/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1578275609360" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1577975860166">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/2560.232.1366.728/0.0.2560.1400@0.0.2560.1400" timestamp="1577975860166" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588085335430" />
   </component>
 </project>

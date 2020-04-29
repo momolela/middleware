@@ -16,12 +16,12 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="activemq" target="1.7" />
-      <module name="elasticsearch" target="1.7" />
-      <module name="fastdfs" target="1.7" />
+      <module name="activemq" target="1.8" />
+      <module name="elasticsearch" target="1.8" />
+      <module name="fastdfs" target="1.8" />
       <module name="kafka" target="1.8" />
-      <module name="middleware" target="1.7" />
-      <module name="nginx" target="1.7" />
+      <module name="middleware" target="1.8" />
+      <module name="nginx" target="1.8" />
       <module name="redis" target="1.8" />
       <module name="zookeeper" target="1.8" />
     </bytecodeTargetLevel>

@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfeee5a1-ec96-4f12-81fd-577f27f0ef00" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/activemq/src/main/java/com/momolela/consumer/JmsConsumerQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/activemq/src/main/java/com/momolela/consumer/JmsConsumerTopic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/activemq/src/main/java/com/momolela/producer/JmsProduceTopic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/activemq/src/main/java/com/momolela/producer/JmsProducerQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/activemq_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/activemq_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/zookeeper_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/zookeeper_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/activemq/activemq.iml" beforeDir="false" afterPath="$PROJECT_DIR$/activemq/activemq.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/activemq/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/activemq/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elasticsearch/elasticsearch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/elasticsearch/elasticsearch.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastdfs/fastdfs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/fastdfs/fastdfs.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware.iml" beforeDir="false" afterPath="$PROJECT_DIR$/middleware.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/nginx.iml" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/nginx.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zookeeper/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zookeeper/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zookeeper/zookeeper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/zookeeper/zookeeper.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,6 +182,7 @@
       <workItem from="1587565284033" duration="3483000" />
       <workItem from="1588084260782" duration="2784000" />
       <workItem from="1588173719934" duration="2215000" />
+      <workItem from="1588946533269" duration="1573000" />
     </task>
     <servers />
   </component>
@@ -206,6 +190,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="560" y="113" key="CommitChangelistDialog2" timestamp="1588177842127">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="560" y="113" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588177842127" />
     <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1588086763765">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -242,6 +230,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587566684697" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1588177881913">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588177881913" />
+    <state x="666" y="311" key="git4idea.merge.GitPullDialog" timestamp="1589991514102">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="666" y="311" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589991514102" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1588085335430">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

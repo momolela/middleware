@@ -12,8 +12,10 @@ public class MyConsumer_04_commitOffset {
     public static void main(String[] args) {
         Properties props = new Properties();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.10.2.81:9092,10.10.2.82:9092,10.10.2.109:9092");
+
         // 关闭自动提交
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
+
         props.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, 1000);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
@@ -28,10 +30,11 @@ public class MyConsumer_04_commitOffset {
             for (ConsumerRecord<Object, Object> record : records) {
                 System.out.printf("offset = %d, key = %s, value = %s%n", record.offset(), record.key(), record.value());
             }
+
             // 同步提交，当前线程会阻塞直到 offset 提交成功，会自动失败重试。由不可控因素导致，也会出现提交失败。而且吞吐量会受到很大的影响
             // consumer.commitSync();
 
-            //异步提交，没有失败重试机制，故有可能提交失败
+            // 异步提交，没有失败重试机制，故有可能提交失败
             consumer.commitAsync(new OffsetCommitCallback() {
                 @Override
                 public void onComplete(Map<TopicPartition, OffsetAndMetadata> offsets, Exception e) {

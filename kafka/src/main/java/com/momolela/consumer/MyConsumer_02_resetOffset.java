@@ -19,6 +19,7 @@ public class MyConsumer_02_resetOffset {
 
         // 消费者组id
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "sun");
+
         // 设置读取更早的数据，其实就是重置消费者组的offset，默认值是latest
         // 有前提条件，满足以下任意一个条件的时候，这个配置才会生效：
         // 1、要么消费者组id变了，就是offset第一次初始化

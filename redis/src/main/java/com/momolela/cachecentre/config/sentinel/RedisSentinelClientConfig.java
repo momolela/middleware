@@ -1,19 +1,34 @@
-package com.momolela.cachecentre.config.single;
+package com.momolela.cachecentre.config.sentinel;
 
 import com.momolela.cachecentre.config.BaseRedisClientConfig;
-import org.apache.commons.lang3.StringUtils;
 
-public class RedisSingleClientConfig extends BaseRedisClientConfig {
+public class RedisSentinelClientConfig extends BaseRedisClientConfig {
 
-    private String serverConfString;
-    private int dbIndex; // 第几个数据库
+    private String serverConfString; // cluster-ip 配置 String
     private String password; // 连接 redis 密码
     private String masterName;
+    private int dbIndex;
     private int minEvictableIdleTimeMillis;
     private int numTestsPerEvictionRun;
     private int timeBetweenEvictionRunsMillis;
     private boolean testOnBorrow;
     private boolean testWhileIdle;
+
+    public String getServerConfString() {
+        return serverConfString;
+    }
+
+    public void setServerConfString(String serverConfString) {
+        this.serverConfString = serverConfString;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getMasterName() {
         return masterName;
@@ -63,14 +78,6 @@ public class RedisSingleClientConfig extends BaseRedisClientConfig {
         this.testWhileIdle = testWhileIdle;
     }
 
-    public String getServerConfString() {
-        return serverConfString;
-    }
-
-    public void setServerConfString(String serverConfString) {
-        this.serverConfString = serverConfString;
-    }
-
     public int getDbIndex() {
         return dbIndex;
     }
@@ -78,15 +85,4 @@ public class RedisSingleClientConfig extends BaseRedisClientConfig {
     public void setDbIndex(int dbIndex) {
         this.dbIndex = dbIndex;
     }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        if (StringUtils.isNotBlank(password)) {
-            this.password = password;
-        }
-    }
-
 }

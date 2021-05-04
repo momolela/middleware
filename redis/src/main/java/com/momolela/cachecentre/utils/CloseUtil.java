@@ -10,12 +10,13 @@ public class CloseUtil {
     private static final Log LOG = LogFactory.getLog(CloseUtil.class);
 
     public static void close(Closeable closeable) {
-        if (closeable != null)
+        if (closeable != null) {
             try {
                 closeable.close();
             } catch (Exception e) {
                 LOG.error("Unable to close " + closeable, e);
             }
+        }
     }
 
 }

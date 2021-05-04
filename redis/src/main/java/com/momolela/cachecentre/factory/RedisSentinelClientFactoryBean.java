@@ -1,28 +1,28 @@
 package com.momolela.cachecentre.factory;
 
 import com.momolela.cachecentre.clients.RedisClient;
-import com.momolela.cachecentre.clients.single.RedisSingleClient;
-import com.momolela.cachecentre.config.single.RedisSingleClientConfig;
+import com.momolela.cachecentre.clients.sentinel.RedisSentinelClient;
+import com.momolela.cachecentre.config.sentinel.RedisSentinelClientConfig;
 import com.momolela.cachecentre.exception.RedisInitializerException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.FactoryBean;
 
-public class RedisSingleClientFactoryBean implements FactoryBean<RedisClient> {
+public class RedisSentinelClientFactoryBean implements FactoryBean<RedisClient> {
 
-    RedisSingleClientConfig redisClientConfig = new RedisSingleClientConfig();
+    RedisSentinelClientConfig redisClientConfig = new RedisSentinelClientConfig();
 
     @Override
     public RedisClient getObject() throws Exception {
         if (StringUtils.isNotBlank(redisClientConfig.getServerConfString())) {
-            return new RedisSingleClient(redisClientConfig);
+            return new RedisSentinelClient(redisClientConfig);
         } else {
-            throw new RedisInitializerException("RedisSingleClient init parameter serverConfString is empty, please check spring config file!");
+            throw new RedisInitializerException("RedisSentinelClient init parameter redisClientConfig is empty, please check spring config file!");
         }
     }
 
     @Override
     public Class<?> getObjectType() {
-        return RedisSingleClient.class;
+        return RedisSentinelClient.class;
     }
 
     @Override
@@ -31,12 +31,12 @@ public class RedisSingleClientFactoryBean implements FactoryBean<RedisClient> {
     }
 
     // 通过 spring 和类的 set 方法进行配置赋值
-    public void setConnectionTimeout(int connectionTimeout) {
-        this.redisClientConfig.setConnectionTimeout(connectionTimeout);
+    public void setMasterName(String masterName) {
+        this.redisClientConfig.setMasterName(masterName);
     }
 
-    public void setSoTimeout(int soTimeout) {
-        this.redisClientConfig.setSoTimeout(soTimeout);
+    public void setPassword(String password) {
+        this.redisClientConfig.setPassword(password);
     }
 
     public void setMaxTotal(int maxTotal) {
@@ -55,20 +55,20 @@ public class RedisSingleClientFactoryBean implements FactoryBean<RedisClient> {
         this.redisClientConfig.setMaxWaitMillis(maxWaitMillis);
     }
 
-    public void setServerConfString(String serverConfString) {
-        this.redisClientConfig.setServerConfString(serverConfString);
+    public void setConnectionTimeout(int connectionTimeout) {
+        this.redisClientConfig.setConnectionTimeout(connectionTimeout);
     }
 
-    public void setPassword(String password) {
-        this.redisClientConfig.setPassword(password);
+    public void setSoTimeout(int soTimeout) {
+        this.redisClientConfig.setSoTimeout(soTimeout);
     }
 
     public void setDbIndex(int dbIndex) {
         this.redisClientConfig.setDbIndex(dbIndex);
     }
 
-    public void setMasterName(String masterName) {
-        this.redisClientConfig.setMasterName(masterName);
+    public void setServerConfString(String serverConfString) {
+        this.redisClientConfig.setServerConfString(serverConfString);
     }
 
     public void setMinEvictableIdleTimeMillis(int minEvictableIdleTimeMillis) {

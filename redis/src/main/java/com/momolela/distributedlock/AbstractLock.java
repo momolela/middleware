@@ -9,6 +9,7 @@ public abstract class AbstractLock implements Lock{
 	
 	private Thread exclusiveOwnerThread;
 
+	@Override
 	public void lock() {
 		try {
 			lock(false, 0, null, false);
@@ -17,10 +18,12 @@ public abstract class AbstractLock implements Lock{
 		}
 	}
 
+	@Override
 	public void lockInterruptibly() throws InterruptedException {
 		lock(false, 0, null, true);
 	}
 
+	@Override
 	public boolean tryLock(long time, TimeUnit unit) throws InterruptedException {
 		try {
 			return lock(true, time, unit, false);
@@ -30,6 +33,7 @@ public abstract class AbstractLock implements Lock{
 		return false;
 	}
 
+	@Override
 	public void unlock() {
 		// 检查当前线程是否持有锁
 		if (Thread.currentThread() != getExclusiveOwnerThread()) {

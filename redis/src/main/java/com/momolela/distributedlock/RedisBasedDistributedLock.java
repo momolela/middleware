@@ -19,80 +19,94 @@ public class RedisBasedDistributedLock extends AbstractLock {
 		this.lockKey = lockKey;
 		this.lockExpires = lockExpires;
 	}
- 
-	// 阻塞式获取锁的实现
-	protected boolean lock(boolean useTimeout, long time, TimeUnit unit, boolean interrupt) throws InterruptedException {
+
+	/**
+	 * 阻塞式获取锁的实现
+	 * @param useTimeout
+	 * @param time 等待时间
+	 * @param unit 等待时间单位
+	 * @param interrupt
+	 * @return
+	 * @throws InterruptedException
+	 */
+	@Override
+    protected boolean lock(boolean useTimeout, long time, TimeUnit unit, boolean interrupt) throws InterruptedException {
 		if (interrupt) {
-			checkInterruption();
+			checkInterruption(); // 判断线程是否中断
 		}
  
 		long start = System.currentTimeMillis();
-		long timeout = unit.toMillis(time); // if !useTimeout, then it's useless
+		long timeout = unit.toMillis(time); // useTimeout 为 true 时，它才有效
  
-		while (useTimeout ? isTimeout(start, timeout) : true) {
+		while (useTimeout ? isTimeout(start, timeout) : true) { // 没有获取锁的超时时间 或者 有超时时间但是没超时 的时候循环
 			if (interrupt) {
-				checkInterruption();
+				checkInterruption(); // 判断线程是否中断
 			}
- 
-			long lockExpireTime = System.currentTimeMillis() + lockExpires + 1;// 锁超时时间
+
+			long lockExpireTime = System.currentTimeMillis() + lockExpires + 1; // 锁超时时间
 			String stringOfLockExpireTime = String.valueOf(lockExpireTime);
- 
+
 			if (jedis.setnx(lockKey, stringOfLockExpireTime) == 1) { // 获取到锁
-				//成功获取到锁, 设置相关标识
-				locked = true;
-				setExclusiveOwnerThread(Thread.currentThread());
+				locked = true; // 成功获取到锁, 设置相关标识
+				setExclusiveOwnerThread(Thread.currentThread()); // 成功获取到锁, 设置当前获取到锁的线程
 				return true;
 			}
- 
+
 			String value = jedis.get(lockKey);
-			if (value != null && isTimeExpired(value)) { // lock is expired
+			if (value != null && isTimeExpired(value)) { // 还没获取到锁，并且锁失效了
 				// 假设多个线程(非单jvm)同时走到这里
-				String oldValue = jedis.getSet(lockKey, stringOfLockExpireTime); //原子操作
+				String oldValue = jedis.getSet(lockKey, stringOfLockExpireTime); // 原子操作，只会有一个线程
 				// 但是走到这里时每个线程拿到的oldValue肯定不可能一样(因为getset是原子性的)
 				// 加入拿到的oldValue依然是expired的，那么就说明拿到锁了
 				if (oldValue != null && isTimeExpired(oldValue)) {
-					//成功获取到锁, 设置相关标识
-					locked = true;
-					setExclusiveOwnerThread(Thread.currentThread());
+					locked = true; // 成功获取到锁, 设置相关标识
+					setExclusiveOwnerThread(Thread.currentThread()); // 成功获取到锁, 设置当前获取到锁的线程
 					return true;
 				}
 			} else {
-				// TODO lock is not expired, enter next loop retrying
+				// TODO 锁没有失效，进入下一次循环
 			}
 		}
 		return false;
 	}
- 
+
+	/**
+	 * 非阻塞式获取锁
+	 * @return
+	 */
+	@Override
 	public boolean tryLock() {
-		long lockExpireTime = System.currentTimeMillis() + lockExpires + 1;// 锁超时时间
+		long lockExpireTime = System.currentTimeMillis() + lockExpires + 1; // 锁超时时间
 		String stringOfLockExpireTime = String.valueOf(lockExpireTime);
- 
+
 		if (jedis.setnx(lockKey, stringOfLockExpireTime) == 1) { // 获取到锁
-			// 成功获取到锁, 设置相关标识
-			locked = true;
-			setExclusiveOwnerThread(Thread.currentThread());
+			locked = true; // 成功获取到锁, 设置相关标识
+			setExclusiveOwnerThread(Thread.currentThread()); // 成功获取到锁, 设置当前获取到锁的线程
 			return true;
 		}
  
 		String value = jedis.get(lockKey);
-		if (value != null && isTimeExpired(value)) { // lock is expired
+		if (value != null && isTimeExpired(value)) { // 还没获取到锁，并且锁失效了
 			// 假设多个线程(非单jvm)同时走到这里
-			String oldValue = jedis.getSet(lockKey, stringOfLockExpireTime); //原子操作
+			String oldValue = jedis.getSet(lockKey, stringOfLockExpireTime); // 原子操作，只会有一个线程
 			// 但是走到这里时每个线程拿到的oldValue肯定不可能一样(因为getset是原子性的)
-			// 假如拿到的oldValue依然是expired的，那么就说明拿到锁了
+			// 加入拿到的oldValue依然是expired的，那么就说明拿到锁了
 			if (oldValue != null && isTimeExpired(oldValue)) {
-				//成功获取到锁, 设置相关标识
-				locked = true;
-				setExclusiveOwnerThread(Thread.currentThread());
+				locked = true; // 成功获取到锁, 设置相关标识
+				setExclusiveOwnerThread(Thread.currentThread()); // 成功获取到锁, 设置当前获取到锁的线程
 				return true;
 			}
-		} else {
-			// TODO lock is not expired, enter next loop retrying
+		} else { // 锁没有失效返回 false
+			return false;
 		}
- 
+
 		return false;
 	}
-	
+
+	/**
+	 * 获取锁的状态
+	 * @return
+	 */
 	public boolean isLocked() {
 		if (locked) {
 			return true;
@@ -105,7 +119,10 @@ public class RedisBasedDistributedLock extends AbstractLock {
 			return !isTimeExpired(value);
 		}
 	}
- 
+
+	/**
+	 * 手动释放锁
+	 */
 	@Override
 	protected void unlock0() {
 		// 判断锁是否过期
@@ -114,25 +131,44 @@ public class RedisBasedDistributedLock extends AbstractLock {
 			doUnlock();
 		}
 	}
- 
+
+	/**
+	 * 判断线程是否中断
+	 * @throws InterruptedException
+	 */
 	private void checkInterruption() throws InterruptedException {
 		if (Thread.currentThread().isInterrupted()) {
 			throw new InterruptedException();
 		}
 	}
- 
+
+	/**
+	 * 锁是否超时
+	 * @param value
+	 * @return
+	 */
 	private boolean isTimeExpired(String value) {
 		return Long.parseLong(value) < System.currentTimeMillis();
 	}
- 
+
+	/**
+	 * 判断获取锁是否超时
+	 * @param start
+	 * @param timeout
+	 * @return
+	 */
 	private boolean isTimeout(long start, long timeout) {
 		return start + timeout > System.currentTimeMillis();
 	}
- 
+
+	/**
+	 * 删除 key 释放锁
+	 */
 	private void doUnlock() {
 		jedis.del(lockKey);
 	}
  
+	@Override
 	public Condition newCondition() {
 		return null;
 	}

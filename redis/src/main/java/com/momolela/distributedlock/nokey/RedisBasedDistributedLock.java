@@ -1,4 +1,4 @@
-package com.momolela.distributedlock;
+package com.momolela.distributedlock.nokey;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;

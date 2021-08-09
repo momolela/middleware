@@ -1,4 +1,4 @@
-package com.momolela.distributedlock;
+package com.momolela.distributedlock.nokey;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
@@ -37,7 +37,7 @@ public abstract class AbstractLock implements Lock{
 	public void unlock() {
 		// 检查当前线程是否持有锁
 		if (Thread.currentThread() != getExclusiveOwnerThread()) {
-			throw new IllegalMonitorStateException("current thread does not hold the lock");
+			throw new IllegalMonitorStateException("current thread does not hold the‘； lock");
 		}
 		unlock0();
 		setExclusiveOwnerThread(null);

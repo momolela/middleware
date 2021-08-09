@@ -1,4 +1,4 @@
-package com.momolela.distributedlock;
+package com.momolela.distributedlock.nokey;
 
 import redis.clients.jedis.Jedis;
 

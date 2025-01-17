@@ -19,5 +19,6 @@
     <module>elasticsearch</module>
       <module>fastdfs</module>
     <module>nginx</module>
+      <module>rocketmq</module>
   </modules>
 </project>

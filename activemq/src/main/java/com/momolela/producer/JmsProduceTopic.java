@@ -6,8 +6,8 @@ import javax.jms.*;
 
 public class JmsProduceTopic {
 
-    private static final String ACTIVEMQ_URL = "tcp://192.168.56.101:61616";
-    private static final String TOPIC_NAME = "queue01";
+    private static final String ACTIVEMQ_URL = "tcp://10.8.2.163:61616";
+    private static final String TOPIC_NAME = "VirtualTopic.haiMQAccess.aabbbb.invoke";
 
     public static void main(String[] args) throws JMSException {
         // 1、创建连接工厂
@@ -24,7 +24,7 @@ public class JmsProduceTopic {
         // 5、创建生产者对象
         MessageProducer producer = session.createProducer(topic);
         // 6、使用生产者对象发送消息到队列
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 1; i++) {
             TextMessage textMessage = session.createTextMessage("发送第" + i + "条消息到MQ");
             producer.send(textMessage);
         }

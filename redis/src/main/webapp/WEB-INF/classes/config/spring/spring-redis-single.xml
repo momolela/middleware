@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:cache="http://www.springframework.org/schema/cache" 
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans    
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+	http://www.springframework.org/schema/context    
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/cache
+	http://www.springframework.org/schema/cache/spring-cache-4.2.xsd">
+
+	<!-- 开启缓存 -->
+	<cache:annotation-driven cache-manager="cacheManager" />
+	
+	<!-- 加载redis配置文件 -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">   
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="location">    
+			<value>classpath:config/db/redis.properties</value>
+		</property>  
+	</bean>
+	
+	<!-- jedis连接池配置 -->
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">  
+		<property name="maxIdle" value="${redis.maxIdle}"></property>
+		<property name="minEvictableIdleTimeMillis" value="${redis.minEvictableIdleTimeMillis}"></property>
+		<property name="numTestsPerEvictionRun" value="${redis.numTestsPerEvictionRun}"></property>
+		<property name="timeBetweenEvictionRunsMillis" value="${redis.timeBetweenEvictionRunsMillis}"></property>
+		<property name="testOnBorrow" value="${redis.testOnBorrow}"></property>
+	</bean>
+	
+	<!-- jedis连接信息配置 -->
+	<bean id="jedisConnectionFactory"
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+		destroy-method="destroy">
+		<property name="poolConfig" ref="jedisPoolConfig"></property>
+		<property name="password" value="${redis.pass}"></property>
+		<property name="hostName" value="${redis.hostName}"></property>
+		<property name="port" value="${redis.port}"></property>
+		<property name="timeout" value="${redis.timeout}"></property>
+		<property name="usePool" value="${redis.usePool}"></property>
+	</bean>
+	
+	<!-- redisTemplate -->
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="jedisConnectionFactory"/>  
+        <property name="defaultSerializer">  
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>  
+        </property>  
+	</bean>
+	
+	<!-- redisTemplate -->
+	<!-- <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="jedisConnectionFactory"></property>
+		<property name="keySerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+		</property>
+		<property name="valueSerializer">
+			<bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
+		</property>
+	</bean> -->
+	
+	<!-- 配置缓存spring的缓存，可以用注解 -->
+    <bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
+        <constructor-arg ref="redisTemplate" />
+    </bean>
+
+	<!-- 发布订阅的消息监听的容器 -->
+    <bean id="redisContainer" class="org.springframework.data.redis.listener.RedisMessageListenerContainer">
+        <property name="connectionFactory" ref="jedisConnectionFactory" />
+        <property name="messageListeners">
+            <map>
+                <entry key-ref="subscribe1">
+                    <list>
+                        <!-- 普通订阅，订阅具体的频道 -->
+                        <bean class="org.springframework.data.redis.listener.ChannelTopic">
+                            <constructor-arg value="topic.channel" />
+                        </bean>
+                        <!-- 模式订阅，支持模式匹配订阅，*为模糊匹配符 -->
+                        <bean class="org.springframework.data.redis.listener.PatternTopic">
+                            <constructor-arg value="topic.*" />
+                        </bean>
+                        <!-- 匹配所有频道 -->
+                        <bean class="org.springframework.data.redis.listener.PatternTopic">
+                            <constructor-arg value="*" />
+                        </bean>
+                    </list>
+                </entry>
+                <entry key-ref="subscribe2">
+                    <list>
+                        <!-- 普通订阅，订阅具体的频道 -->
+                        <bean class="org.springframework.data.redis.listener.ChannelTopic">
+                            <constructor-arg value="topic.channel" />
+                        </bean>
+                        <!-- 模式订阅，支持模式匹配订阅，*为模糊匹配符 -->
+                        <bean class="org.springframework.data.redis.listener.PatternTopic">
+                            <constructor-arg value="topic.*" />
+                        </bean>
+                        <!-- 匹配所有频道 -->
+                        <bean class="org.springframework.data.redis.listener.PatternTopic">
+                            <constructor-arg value="*" />
+                        </bean>
+                    </list>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <!-- redis缓存工具bean -->
+    <bean id="RedisCacheUtil" class="com.momolela.util.RedisCacheUtil"/>
+</beans>

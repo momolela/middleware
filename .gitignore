@@ -1,1 +1,6 @@
-/.idea/
+*.iml
+!/.gitignore
+changelog.json
+target
+.DS_store
+.idea
